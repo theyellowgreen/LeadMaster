@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/home/green/RiderProjects/LeadMaster/LeadMaster.Host/obj/Debug/net8.0/scopedcss/projectbundle/LeadMaster.Host.bundle.scp.css",
+      "PackagePath": "staticwebassets/LeadMaster.Host.bundle.scp.css"
+    },
+    {
+      "Id": "/home/green/RiderProjects/LeadMaster/LeadMaster.Host/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/home/green/RiderProjects/LeadMaster/LeadMaster.Host/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/home/green/RiderProjects/LeadMaster/LeadMaster.Host/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/home/green/RiderProjects/LeadMaster/LeadMaster.Host/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LeadMaster.Host.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LeadMaster.Host.props",
+      "PackagePath": "build\\LeadMaster.Host.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LeadMaster.Host.props",
+      "PackagePath": "buildMultiTargeting\\LeadMaster.Host.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LeadMaster.Host.props",
+      "PackagePath": "buildTransitive\\LeadMaster.Host.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

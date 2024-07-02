@@ -1,0 +1,12 @@
+/home/green/RiderProjects/LeadMaster/Persistance/bin/Debug/net8.0/Persistance.deps.json
+/home/green/RiderProjects/LeadMaster/Persistance/bin/Debug/net8.0/Persistance.dll
+/home/green/RiderProjects/LeadMaster/Persistance/bin/Debug/net8.0/Persistance.pdb
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.csproj.AssemblyReference.cache
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.GeneratedMSBuildEditorConfig.editorconfig
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.AssemblyInfoInputs.cache
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.AssemblyInfo.cs
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.csproj.CoreCompileInputs.cache
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.dll
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/refint/Persistance.dll
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/Persistance.pdb
+/home/green/RiderProjects/LeadMaster/Persistance/obj/Debug/net8.0/ref/Persistance.dll

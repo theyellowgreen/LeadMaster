@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{29342EA9-2EA8-433E-9ACF-F9536AA68102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadMaster.Host", "LeadMaster.Host\LeadMaster.Host.csproj", "{83FAED52-D7B9-442D-A246-D5D733499CB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29342EA9-2EA8-433E-9ACF-F9536AA68102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29342EA9-2EA8-433E-9ACF-F9536AA68102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29342EA9-2EA8-433E-9ACF-F9536AA68102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29342EA9-2EA8-433E-9ACF-F9536AA68102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83FAED52-D7B9-442D-A246-D5D733499CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83FAED52-D7B9-442D-A246-D5D733499CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83FAED52-D7B9-442D-A246-D5D733499CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83FAED52-D7B9-442D-A246-D5D733499CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

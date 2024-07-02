@@ -1,0 +1,169 @@
+﻿@page "/"
+@rendermode @(new InteractiveServerRenderMode(false))
+@using LeadMaster.Persistance
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext dbContext
+
+
+@if (_isChatsShowing)
+{
+    <h3>Список чатов</h3>
+
+    <div>
+        <input type="text" @bind="NewChatName" placeholder="Введите имя нового чата">
+        <button @onclick="AddChatAsync">Добавить чат</button>
+    </div>
+
+    <ul>
+        @foreach (var chat in chats)
+        {
+            <li>
+                <div>
+                    @chat.ChatDescription
+
+                    <button @onclick="() => DeleteChatAsync(chat.Id)">Удалить</button>
+
+                    <button @onclick="() => OpenChatAsync(chat.Id)">Сообщения</button>
+                </div>
+
+            </li>
+        }
+    </ul>
+}
+@if (_isChatsShowing == false)
+{
+    <div>
+        <div>
+            <button @onclick="() => _isChatsShowing = true">Назад к чатам</button>
+        </div>
+        <br/>
+        <ul>
+            @foreach (var message in _messages)
+            {
+                <li>
+                    <div>
+
+                        @if (message.IsClient)
+                        {
+                            <span style="color: green">Клиент: </span>
+                        }
+
+                        @if (message.IsClient == false)
+                        {
+                            <span style="color: #3a0647">   Мы: </span>
+                        }
+
+                        @message.MessageContent
+
+                        <button @onclick="() => DeleteChatMessageAsync(message.Id)">Удалить</button>
+                    </div>
+
+                </li>
+                <br/>
+            }
+        </ul>
+        <div>
+            <input type="text" @bind="NewMessageContent">
+            <button @onclick="() => AddChatMessageAsync(true)">Сообщение от клиента</button>
+            <button @onclick="() => AddChatMessageAsync(false)">Сообщение клиенту</button>
+        </div>
+    </div>
+}
+
+@code {
+    public string NewChatName { get; set; }
+    public string NewMessageContent { get; set; }
+
+    private List<Chat> chats = new List<Chat>();
+    private Guid ShowingChatId = Guid.Empty;
+    private List<ChatMessage> _messages = new List<ChatMessage>();
+    private bool _isChatsShowing = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadChatsAsync();
+    }
+
+    private async Task LoadChatsAsync()
+    {
+        chats = await dbContext.Set<Chat>().ToListAsync();
+    }
+
+    private async Task LoadMessagesAsync()
+    {
+        _messages = await dbContext.Set<ChatMessage>()
+            .Where(p => p.Chat.Id == ShowingChatId)
+            .ToListAsync();
+    }
+
+    private async Task AddChatAsync()
+    {
+        if(string.IsNullOrEmpty(NewChatName))
+            return;
+        
+        var newChat = new Chat
+        {
+            ChatDescription = NewChatName,
+            Id = Guid.NewGuid()
+        };
+
+        try
+        {
+            dbContext.Add(newChat);
+            await dbContext.SaveChangesAsync();
+
+            NewChatName = string.Empty;
+            await LoadChatsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw;
+        }
+    }
+
+    private async Task DeleteChatAsync(Guid chatId)
+    {
+        var chat = await dbContext.Set<Chat>().FindAsync(chatId);
+        if (chat != null)
+        {
+            dbContext.Remove(chat);
+            await dbContext.SaveChangesAsync();
+            await LoadChatsAsync();
+        }
+    }
+
+    private async Task OpenChatAsync(Guid chatId)
+    {
+        ShowingChatId = chatId;
+
+        _isChatsShowing = false;
+        await LoadMessagesAsync();
+    }
+    
+    private async Task DeleteChatMessageAsync(Guid messageId)
+    {
+        await dbContext.Set<ChatMessage>()
+            .Where(p => p.Id == messageId)
+            .ExecuteDeleteAsync();
+
+        await LoadMessagesAsync();
+    }
+
+    private async Task AddChatMessageAsync(bool isClient)
+    {
+        var chat = await dbContext.Set<Chat>().FirstAsync(p => p.Id == ShowingChatId);
+        var msg = new ChatMessage()
+        {
+            MessageContent = NewMessageContent,
+            Chat = chat,
+            IsClient = isClient
+        };
+
+        dbContext.Add(msg);
+        await dbContext.SaveChangesAsync();
+
+        await LoadMessagesAsync();
+    }
+
+}
