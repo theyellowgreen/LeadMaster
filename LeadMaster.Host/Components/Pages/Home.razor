@@ -93,8 +93,9 @@
     {
         _messages = await dbContext.Set<ChatMessage>()
             .Where(p => p.Chat.Id == ShowingChatId)
-            .Reverse()
             .ToListAsync();
+
+        _messages.Reverse();
     }
 
     private async Task AddChatAsync()
