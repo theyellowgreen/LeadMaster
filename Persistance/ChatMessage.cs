@@ -9,4 +9,6 @@ public class ChatMessage
     public bool IsClient { get; set; }
     
     public required string MessageContent { get; set; }
+
+    public DateTime AddedAt { get; set; } = DateTime.UtcNow;
 }

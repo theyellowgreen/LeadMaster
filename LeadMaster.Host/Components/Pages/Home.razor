@@ -93,9 +93,8 @@
     {
         _messages = await dbContext.Set<ChatMessage>()
             .Where(p => p.Chat.Id == ShowingChatId)
+            .OrderByDescending(p => p.AddedAt)
             .ToListAsync();
-
-        _messages.Reverse();
     }
 
     private async Task AddChatAsync()

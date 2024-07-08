@@ -6,6 +6,7 @@ public class AppDbContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        //optionsBuilder.UseNpgsql("Server=194.87.248.193;Port=5432;Database=postgres;User Id=postgres;Password=Vlas_1234");
         optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=Vlas_1234");
         
         base.OnConfiguring(optionsBuilder);
