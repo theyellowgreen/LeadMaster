@@ -93,7 +93,7 @@
     {
         _messages = await dbContext.Set<ChatMessage>()
             .Where(p => p.Chat.Id == ShowingChatId)
-            .OrderBy(p => p.Id)
+            .Reverse()
             .ToListAsync();
     }
 
